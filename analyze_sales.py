@@ -21,18 +21,18 @@ def configure_gemini(api_key: Optional[str] = None):
         api_key: Your Gemini API key. If not provided, will look for GEMINI_API_KEY environment variable.
     """
     #api_key = os.environ.get('AIzaSyCtitdwRnnReRwjx5E1jJe5v70TH2uklJQ')
-    #if api_key is None:
-        #api_key = os.getenv('AIzaSyCtitdwRnnReRwjx5E1jJe5v70TH2uklJQ')
-        #api_key = os.environ.get('GEMINI_API_KEY')
-        #os.environ["GEMINI_API_KEY"] = "AIzaSyCtitdwRnnReRwjx5E1jJe5v70TH2uklJQ"
-        #genai.api_key = 'AIzaSyCtitdwRnnReRwjx5E1jJe5v70TH2uklJQ'
-        #if api_key is None:
-            #raise ValueError(
-                #"API key not found. Please provide it as an argument or set GEMINI_API_KEY environment variable.\n"
-                #"Get your API key from: https://aistudio.google.com/app/apikey"
-           #)
+    if api_key is None:
+        api_key = os.getenv('AIzaSyCtitdwRnnReRwjx5E1jJe5v70TH2uklJQ')
+        api_key = os.environ.get('GEMINI_API_KEY')
+        os.environ["GEMINI_API_KEY"] = "AIzaSyCtitdwRnnReRwjx5E1jJe5v70TH2uklJQ"
+        genai.api_key = 'AIzaSyCtitdwRnnReRwjx5E1jJe5v70TH2uklJQ'
+        if api_key is None:
+            raise ValueError(
+                "API key not found. Please provide it as an argument or set GEMINI_API_KEY environment variable.\n"
+                "Get your API key from: https://aistudio.google.com/app/apikey"
+           )
     
-    genai.configure(api_key="AIzaSyCtitdwRnnReRwjx5E1jJe5v70TH2uklJQ")
+    genai.configure(api_key="GEMINI_API_KEY")
 
 
 def load_sales_data(filepath: str = "sales_data_sample.csv") -> pd.DataFrame:
