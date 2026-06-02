@@ -22,10 +22,10 @@ def configure_gemini(api_key: Optional[str] = None):
     """
     #api_key = os.environ.get('AIzaSyCtitdwRnnReRwjx5E1jJe5v70TH2uklJQ')
     if api_key is None:
-        api_key = os.getenv('AIzaSyCtitdwRnnReRwjx5E1jJe5v70TH2uklJQ')
+        api_key = os.getenv('')
         api_key = os.environ.get('GEMINI_API_KEY')
-        os.environ["GEMINI_API_KEY"] = "AIzaSyCtitdwRnnReRwjx5E1jJe5v70TH2uklJQ"
-        genai.api_key = 'AIzaSyCtitdwRnnReRwjx5E1jJe5v70TH2uklJQ'
+        os.environ["GEMINI_API_KEY"] = ""
+        genai.api_key = ''
         if api_key is None:
             raise ValueError(
                 "API key not found. Please provide it as an argument or set GEMINI_API_KEY environment variable.\n"
